@@ -1,6 +1,6 @@
 <div align="center">
 
-# agentic-soc-triage
+# Agentic SOC triage
 
 **A local-LLM SOC analyst that triages a homelab SIEM's overnight alerts, so a human only sees what needs a human.**
 

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760" width="100%" height="100%">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#495057" />
+    </marker>
+  </defs>
+
+  <style>
+    .node-rect { stroke: #adb5bd; stroke-width: 2; rx: 8; ry: 8; }
+    .text-bold { font-weight: 600; }
+    .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #212529; font-size: 16px; font-weight: 700; }
+    .text-base { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #212529; font-size: 14px; }
+    .text-sm { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #495057; font-size: 13px; }
+    .text-xs { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #495057; font-size: 12px; font-style: italic; }
+    .edge { stroke: #495057; stroke-width: 2; }
+    .label-bg { fill: #ffffff; stroke: #e9ecef; stroke-width: 1;}
+  </style>
+
+  <line class="edge" x1="400" y1="70" x2="400" y2="110" marker-end="url(#arrowhead)"/>
+  <line class="edge" x1="400" y1="170" x2="400" y2="210" marker-end="url(#arrowhead)"/>
+
+  <line class="edge" x1="250" y1="470" x2="250" y2="580" marker-end="url(#arrowhead)"/>
+  <line class="edge" x1="550" y1="470" x2="550" y2="580" marker-end="url(#arrowhead)"/>
+
+  <line class="edge" x1="250" y1="620" x2="250" y2="680" marker-end="url(#arrowhead)"/>
+  <line class="edge" x1="550" y1="620" x2="550" y2="680" marker-end="url(#arrowhead)"/>
+
+  <rect class="node-rect" x="310" y="30" width="180" height="40" fill="#f8f9fa"/>
+  <text class="text-base" x="400" y="55" text-anchor="middle">scheduled, overnight</text>
+
+  <rect class="node-rect" x="210" y="110" width="380" height="60" fill="#e3f2fd"/>
+  <text class="text-base text-bold" x="400" y="135" text-anchor="middle">daily report (.md)</text>
+  <text class="text-sm" x="400" y="155" text-anchor="middle">Top Rules · High/Critical lvl 10+ · Suricata sigs</text>
+
+  <rect class="node-rect" x="100" y="210" width="600" height="260" fill="#fff3e0"/>
+  <text class="text-title" x="120" y="245">L1 agent · gemma4:e4b via Ollama (on the GPU)</text>
+  <text class="text-base" x="120" y="280"><tspan class="text-bold">stage 1</tspan> - classify each finding: KNOWN / SUSPICIOUS / UNKNOWN</text>
+  <text class="text-base" x="135" y="305">• short-circuits, no model call: benign rule IDs, CVE pre-check</text>
+  <text class="text-base" x="135" y="330">• vault RAG lookup per rule</text>
+  <text class="text-base" x="135" y="355">• self-updating correlation memory</text>
+  <text class="text-base" x="135" y="380">• month-context (recurring-pattern matching)</text>
+  <text class="text-base" x="120" y="420"><tspan class="text-bold">stage 2</tspan> - assemble posture + summary + action items</text>
+  <text class="text-base" x="120" y="450"><tspan class="text-bold">stage 3</tspan> - escalate if unresolved ≥ threshold</text>
+
+  <rect class="label-bg" x="155" y="515" width="190" height="24" rx="4"/>
+  <rect class="label-bg" x="460" y="515" width="180" height="24" rx="4"/>
+
+  <text class="text-xs" x="250" y="531" text-anchor="middle">injects the L1 Analysis block</text>
+  <text class="text-xs" x="550" y="531" text-anchor="middle">flags what it can't resolve</text>
+
+  <rect class="node-rect" x="150" y="580" width="200" height="40" fill="#e3f2fd"/>
+  <text class="text-base" x="250" y="605" text-anchor="middle">report + L1 Analysis</text>
+
+  <rect class="node-rect" x="120" y="680" width="260" height="40" fill="#e8f5e9"/>
+  <text class="text-base" x="250" y="705" text-anchor="middle">human spot-check, in the morning</text>
+
+  <rect class="node-rect" x="430" y="580" width="240" height="40" fill="#f3e5f5"/>
+  <text class="text-base text-bold" x="550" y="605" text-anchor="middle">L2 review · Claude, on demand</text>
+
+  <rect class="node-rect" x="470" y="680" width="160" height="40" fill="#e8f5e9"/>
+  <text class="text-base" x="550" y="705" text-anchor="middle">human verdict</text>
+
+</svg>

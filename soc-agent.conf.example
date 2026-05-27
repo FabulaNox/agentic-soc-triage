@@ -1,0 +1,23 @@
+# SOC Agent configuration - copy to ~/.config/soc-agent.conf (bash syntax)
+
+# Ollama (local model server)
+OLLAMA_URL="http://localhost:11434/api/generate"
+OLLAMA_MODEL="gemma4:e4b"       # small enough for a budget GPU; filters, doesn't adjudicate
+OLLAMA_TIMEOUT=900
+
+# Paths - your notes/SIEM-report vault (a git repo, so memory updates are versioned)
+VAULT_DIR="$HOME/notes"
+REPORT_DIR="$VAULT_DIR/Security/Operations/Reports/Daily reports"
+MEMORY_FILE="$VAULT_DIR/Security/Operations/gemma-soc-memory.md"
+LOG="$HOME/.local/log/soc-agent.log"
+
+# Stage 1: rule IDs that unconditionally short-circuit to KNOWN (no model call).
+# Only put rules here that are ALWAYS benign regardless of agent or count.
+KNOWN_RULES="100120 100124 100125 591 86601"
+
+# Stage 1: max unique (rule, agent) pairs to classify via the model per run.
+# Remaining pairs are summarised as "N additional findings - see raw data".
+MAX_ALERTS=10
+
+# Stage 3: number of SUSPICIOUS+UNKNOWN findings that triggers an L2 flag.
+ESCALATION_THRESHOLD=1
